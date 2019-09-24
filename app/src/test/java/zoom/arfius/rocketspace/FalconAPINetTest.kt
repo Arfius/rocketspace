@@ -30,7 +30,7 @@ class FalconAPINetTest {
     @Test
     fun test_get_list_rockets_from_server_and_test_type() {
         var ts : TestSubscriber<List<ApiClasses.Rocket>> = TestSubscriber<List<ApiClasses.Rocket>>()
-        FalconAPINet.search().subscribe(ts)
+        FalconAPINet.search("falcon9").subscribe(ts)
         ts.awaitTerminalEvent()
         ts.assertComplete()
         ts.assertNoErrors()
@@ -44,13 +44,13 @@ class FalconAPINetTest {
     fun test_get_fake_list_rockets_and_test_data() {
 
         //given
-        whenever(mockFalconAPIService.search()).thenReturn(Flowable.just(getFakeRocketList()))
+        whenever(mockFalconAPIService.search("falcon9")).thenReturn(Flowable.just(getFakeRocketList()))
 
         //when
         var ts : TestSubscriber<List<ApiClasses.Rocket>> = TestSubscriber<List<ApiClasses.Rocket>>()
 
         //then
-        mockFalconAPIService.search().subscribe(ts)
+        mockFalconAPIService.search("falcon9").subscribe(ts)
 
         ts.awaitTerminalEvent()
         ts.assertComplete()
