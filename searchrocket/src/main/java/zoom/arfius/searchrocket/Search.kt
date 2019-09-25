@@ -10,13 +10,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_search.*
 import zoom.arfius.searchrocket.model.ApiClasses
-import zoom.arfius.searchrocket.presenter.IMainPresenter
 import zoom.arfius.searchrocket.presenter.MainPresenter
 
-class Search : AppCompatActivity() , IMainPresenter {
+class Search : AppCompatActivity() , ISearch {
 
     var presenterImplementation: MainPresenter? = null
-    var mAdapter: MainAdapter? = null
+    var mAdapter: SearchAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,7 +79,7 @@ class Search : AppCompatActivity() , IMainPresenter {
     }
 
     override fun updateAdapter(list: List<ApiClasses.Rocket>) {
-        mAdapter = MainAdapter(list)
+        mAdapter = SearchAdapter(list)
         recycleView.setAdapter(mAdapter);
     }
 }

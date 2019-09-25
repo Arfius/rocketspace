@@ -1,13 +1,14 @@
 package zoom.arfius.searchrocket.presenter
 
+import zoom.arfius.searchrocket.ISearch
 import zoom.arfius.searchrocket.model.ApiClasses
 import zoom.arfius.searchrocket.repository.FalconAPINet
 import zoom.arfius.searchrocket.repository.IService
 
 class MainPresenter(
-        iMainPresenter: IMainPresenter
+        iSearch: ISearch
 ) : IService {
-    private val iPresenter = iMainPresenter
+    private val iPresenter = iSearch
 
     fun getRocketList(query:String){
         iPresenter.showSpinner()

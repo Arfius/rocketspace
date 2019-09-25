@@ -1,62 +1,62 @@
 package zoom.arfius.orientation
 
 import android.content.Context
-import android.content.pm.ActivityInfo
-import android.hardware.Sensor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import zoom.arfius.orientation.presenter.IOPresenter
-import androidx.core.view.ViewCompat.setZ
-import androidx.core.view.ViewCompat.setY
-import androidx.core.view.ViewCompat.setX
-import android.hardware.Sensor.TYPE_GYROSCOPE
-import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
-import android.hardware.SensorManager
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.os.Build
 import android.util.Log
-import android.view.View
-import android.view.WindowManager
+import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_orientation.*
+import zoom.arfius.orientation.presenter.OPresenter
 
 
-class Orientation : AppCompatActivity(),  SensorEventListener {
+class Orientation : AppCompatActivity(), IOrientation {
 
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        Log.i("[AF]onAccuracyChanged","")
+    lateinit var presenter: OPresenter
+
+    override fun updateText(value:Float) {
+        axisx.setText(""+value);
+        if(value>0){
+            update(textViewH,5.0,value)
+            update(textViewE,4.0,value)
+            update(textViewL1,3.0,value)
+            update(textViewL2,1.0,value)
+            update(textViewO,1.0,value)
+        }else
+        {
+            update(textViewH,1.0,-1*value)
+            update(textViewE,2.0,-1*value)
+            update(textViewL1,3.0,-1*value)
+            update(textViewL2,4.0,-1*value)
+            update(textViewO,5.0,-1*value)
+        }
+
+
     }
 
-    override fun onSensorChanged(event: SensorEvent?) {
-        Log.i("[AF]onSensorChanged X",""+event!!.values[0])
-
+    fun update(tw:TextView,weight:Double,scale:Float ){
+        var c=weight*scale+24;
+        Log.i("update",tw.text.toString()+" >"+c);
+        tw.textSize= c.toFloat()
     }
-
-
-    private var mSensorManager : SensorManager?= null
-    private var mAccelerometer : Sensor?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_orientation)
-
-        //----------------------
-
-        mSensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        // focus in accelerometer
-        mAccelerometer = mSensorManager!!.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
-        // setup the window
+        presenter= OPresenter(this)
     }
 
     override fun onResume() {
         super.onResume()
-        mSensorManager!!.registerListener(this,mAccelerometer,
-                SensorManager.SENSOR_DELAY_GAME)
+        presenter.runGyroscope();
     }
 
     override fun onPause() {
         super.onPause()
-        mSensorManager!!.unregisterListener(this)
+        presenter.stopGyroscope();
+    }
+
+    override fun getContext():Context{
+        return baseContext;
     }
 
 }

@@ -1,8 +1,8 @@
-package zoom.arfius.searchrocket.presenter
+package zoom.arfius.searchrocket
 
 import zoom.arfius.searchrocket.model.ApiClasses
 
-interface IMainPresenter {
+interface ISearch {
 
 
         fun showSpinner()

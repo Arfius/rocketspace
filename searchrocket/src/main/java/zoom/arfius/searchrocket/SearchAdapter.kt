@@ -10,7 +10,7 @@ import zoom.arfius.searchrocket.model.ApiClasses
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MainAdapter constructor(var rocketList: List<ApiClasses.Rocket>) :
+class SearchAdapter constructor(var rocketList: List<ApiClasses.Rocket>) :
         RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     internal class ViewHolder(view: View) : RecyclerView.ViewHolder(view)

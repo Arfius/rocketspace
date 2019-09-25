@@ -1,5 +1,5 @@
 package zoom.arfius.orientation.presenter
 
-interface IOPresenter{
-    
+interface IOPresenter {
+    fun getXMovement(value: Float)
 }
