@@ -1,1 +1,1 @@
-include ':app', ':searchrocket'
+include ':app', ':searchrocket', ':orientation'
