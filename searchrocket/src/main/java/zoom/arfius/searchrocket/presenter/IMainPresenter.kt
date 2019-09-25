@@ -1,6 +1,6 @@
-package zoom.arfius.rocketspace.presenter
+package zoom.arfius.searchrocket.presenter
 
-import zoom.arfius.rocketspace.model.ApiClasses
+import zoom.arfius.searchrocket.model.ApiClasses
 
 interface IMainPresenter {
 

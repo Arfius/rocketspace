@@ -1,11 +1,11 @@
-package zoom.arfius.rocketspace
+package zoom.arfius.searchrocket
 
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Flowable
 import io.reactivex.subscribers.TestSubscriber
-import zoom.arfius.rocketspace.model.ApiClasses
-import zoom.arfius.rocketspace.repository.FalconAPINet
-import zoom.arfius.rocketspace.repository.FalconAPIService
+import zoom.arfius.searchrocket.model.ApiClasses
+import zoom.arfius.searchrocket.repository.FalconAPINet
+import zoom.arfius.searchrocket.repository.FalconAPIService
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock

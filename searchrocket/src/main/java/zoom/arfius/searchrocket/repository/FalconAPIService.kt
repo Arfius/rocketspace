@@ -1,7 +1,7 @@
-package zoom.arfius.rocketspace.repository
+package zoom.arfius.searchrocket.repository
 
 import io.reactivex.Flowable
-import zoom.arfius.rocketspace.model.ApiClasses
+import zoom.arfius.searchrocket.model.ApiClasses
 import retrofit2.http.GET
 import retrofit2.http.Query
 

@@ -1,7 +1,7 @@
-package zoom.arfius.rocketspace.repository
+package zoom.arfius.searchrocket.repository
 
 import io.reactivex.Flowable
-import zoom.arfius.rocketspace.model.ApiClasses
+import zoom.arfius.searchrocket.model.ApiClasses
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -11,7 +11,7 @@ import io.reactivex.schedulers.Schedulers
 
 
 
-object FalconAPINet:IFalconAPINet {
+object FalconAPINet: IFalconAPINet {
 
 
     private val base_url = "https://api.spacexdata.com"
@@ -30,7 +30,7 @@ object FalconAPINet:IFalconAPINet {
     fun search(query:String): Flowable<List<ApiClasses.Rocket>> = falconAPI.search(query)
 
     override
-    fun search(iService:IService,query:String) {
+    fun search(iService: IService, query:String) {
         search(query).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

@@ -1,4 +1,4 @@
-package zoom.arfius.rocketspace.model
+package zoom.arfius.searchrocket.model
 
 public class ApiClasses {
     data class Rocket(

@@ -1,4 +1,4 @@
-package zoom.arfius.rocketspace
+package zoom.arfius.searchrocket
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_list.view.*
-import zoom.arfius.rocketspace.model.ApiClasses
+import zoom.arfius.searchrocket.model.ApiClasses
 import java.text.SimpleDateFormat
 import java.util.*
 

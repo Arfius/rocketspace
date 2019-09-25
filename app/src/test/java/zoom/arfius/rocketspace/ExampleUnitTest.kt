@@ -1,4 +1,4 @@
-package zoom.arfius.searchrocket
+package zoom.arfius.rocketspace
 
 import org.junit.Test
 
