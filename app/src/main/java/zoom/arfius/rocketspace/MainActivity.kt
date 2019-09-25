@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import zoom.arfius.searchrocket.Search
+import zoom.arfius.orientation.Orientation
 
 class MainActivity : AppCompatActivity()  {
 
@@ -21,5 +22,12 @@ class MainActivity : AppCompatActivity()  {
         val i = Intent(this, Search::class.java)
         startActivity(i)
     }
+
+    fun orientation(view:View){
+        val i = Intent(this, Orientation::class.java)
+        startActivity(i)
+    }
+
+
 
 }

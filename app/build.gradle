@@ -50,5 +50,6 @@ dependencies {
 
     //-------------------------------------------------------------
     implementation project(':searchrocket')
+    implementation project(':orientation')
 
 }
