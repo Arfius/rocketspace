@@ -40,10 +40,8 @@ class Orientation : AppCompatActivity(), IOrientation {
         Log.i("update",tw.text.toString()+" >"+c);
         tw.textSize= c.toFloat()
         views.forEach { e->
-
             if(e.id!=tw.id)
                 e.textSize=24.0F;
-
         }
     }
 
